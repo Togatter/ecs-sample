@@ -19,8 +19,8 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - make ecr-push
-      - make create-json
+      - make print-json > imagedefinitions.json
 artifacts:
   ## buildの最後で作成したファイルをアーティファクトとして流す
   type: zip
-  files: imageDetail.json
+  files: imagedefinitions.json
