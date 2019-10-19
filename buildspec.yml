@@ -19,7 +19,6 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - make ecr-push
-      - {"Version":"latest","ImageURI":"631938344310.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-sample:latest"}
       - printf '{"Version":"latest","ImageURI":"%s"}' 631938344310.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-sample:latest > imagedefinitions.json
 
 artifacts:
