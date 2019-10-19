@@ -15,4 +15,4 @@ test:
 	echo "start test!"
 	echo "end test!"
 create-json:
-	echo '{"Version":"${IMAGE_TAG}","ImageURI":"${ECR_REPO}:${IMAGE_TAG}"}' > imagedefinitions.json
+	echo '[{"name":"${IMAGE_TAG}","imageUri":"${ECR_REPO}:${IMAGE_TAG}"}]' > imagedefinitions.json
