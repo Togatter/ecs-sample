@@ -1,0 +1,45 @@
+server {
+  listen 80;
+  server_name localhost;
+
+  root /home/laravel/www/public/;
+  index index.php index.html index.htm;
+
+  #charset koi8-r;
+  access_log /var/log/nginx/local.access.log;
+  error_log /var/log/nginx/local.error.log;
+
+  location / {
+    try_files $uri $uri/ /index.php$query_string;
+  }
+
+  error_page 500 502 503 504 /50x.html;
+  location = /50x.html {
+    root /usr/share/nginx/html;
+  }
+
+  location ~ \index2.php {
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    fastcgi_pass unix:/run/php7.2-fpm.sock;
+    fastcgi_param  SCRIPT_FILENAME  $document_root/index2.php;
+
+    fastcgi_max_temp_file_size 0;
+    fastcgi_buffer_size 4K;
+    fastcgi_buffers 64 4k;
+
+    include fastcgi_params;
+
+  }
+
+  location ~ \.php$ {
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    fastcgi_pass unix:/run/php7.2-fpm.sock;
+    fastcgi_param  SCRIPT_FILENAME  $document_root/index.php;
+
+    fastcgi_max_temp_file_size 0;
+    fastcgi_buffer_size 4K;
+    fastcgi_buffers 64 4k;
+
+    include fastcgi_params;
+  }
+}
