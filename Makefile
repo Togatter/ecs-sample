@@ -15,5 +15,5 @@ test:
 	echo "start test!"
 	echo "end test!"
 
-print-json:
-	printf '{"Version":"latest","ImageURI":"%s"}' ${ECR_REPO}:${IMAGE_TAG}
+create-json:
+	printf '{"Version":"latest","ImageURI":"%s"}' ${ECR_REPO}:${IMAGE_TAG} > imagedefinitions.json
