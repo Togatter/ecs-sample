@@ -11,6 +11,6 @@ build:
 	docker build -t ${ECR_REPO}:latest .
 
 test:
-	echo "start test"
-	echo "end test"
+	echo "start test!"
+	echo "end test!"
 
