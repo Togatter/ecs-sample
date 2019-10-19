@@ -22,4 +22,5 @@ phases:
       - make create-json
 artifacts:
   ## buildの最後で作成したファイルをアーティファクトとして流す
+  type: zip
   files: imageDetail.json
