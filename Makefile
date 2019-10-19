@@ -13,7 +13,7 @@ build:
 	docker build -t ${ECR_REPO}:latest .
 
 test:
-	echo "start test!"
+	echo "start test!!!!!!!!!"
 	echo "end test!"
 create-json:
 	echo '[{"name":"ecs-sample","imageUri":"${ECR_REPO}:${IMAGE_TAG}"}]' > imagedefinitions.json
